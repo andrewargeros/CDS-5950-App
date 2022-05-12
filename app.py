@@ -241,7 +241,7 @@ class Network(nn.Module):
 
     return t
 
-net = torch.load('convolution.pt',
+net = torch.load('./convolution.pt',
     map_location=torch.device('cpu'))
 
 scs = torch.load('./SimCSE.pt')
