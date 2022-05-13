@@ -8,6 +8,7 @@ from torch import nn
 from torch.nn import functional as F
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
+from pathlib import Path
 
 st.set_page_config(layout="wide")
 
@@ -241,10 +242,10 @@ class Network(nn.Module):
 
     return t
 
-net = torch.load('./convolution.pt',
+net = torch.load(str(Path(__file__).parent) + '/convolution.pt',
     map_location=torch.device('cpu'))
 
-scs = torch.load('./SimCSE.pt')
+scs = torch.load(str(Path(__file__).parent) + '/SimCSE.pt')
 
 test_transforms = A.Compose(
     [
